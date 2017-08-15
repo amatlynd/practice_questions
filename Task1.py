@@ -16,9 +16,11 @@ def get_max_profit(stock_prices_yesterday):
     counter = 1
     net = 0
     bestProfit = 0
+    
+    #first loop to get current stock
     for currentStock in stock_prices_yesterday:
-        checkList = stock_prices_yesterday[counter:]
-        for check in checkList:
+        checkList = stock_prices_yesterday[counter:] #creates a smaller list to efficiently loop through again
+        for check in checkList: # checks the net profits comparing smaller lists to avoid duplicate checking
             net = check - currentStock
             print (net)
             if net > bestProfit:
